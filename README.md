@@ -10,7 +10,7 @@ Repository for AE1 DevOps COM619 - Insert Team Name Here
 
 # List of Technologies Being Used In DevOps Project
 - Hosting: Azure VM
-- Database: MongoDB Cluster
+- Database: MySql
 - Languages: Java, HTML, CSS, JS
 - Complier: Sprint Boot, Maven, and Jetty
 
