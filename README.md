@@ -3,10 +3,11 @@ Repository for AE1 DevOps COM619 - Insert Team Name Here
 
 | Name    | Role (Client/Back) |
 | -------- | ------- |
-| William Sephton  | Clientside    |
+| Kyle Roberts  | Clientside    |
 | Quinn Toye | Clientside     |
 | Iona Pitt    | Backend    |
 | Blaise Tyree    | Backend    |
+| William Sephton  | Backend    |
 
 # List of Technologies Being Used In DevOps Project
 - Hosting: Azure VM
