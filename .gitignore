@@ -1,42 +1,38 @@
-# specific for this file
-/maven/
-
- 
-# Maven
-log/
 target/
+!.mvn/wrapper/maven-wrapper.jar
 
-# Eclipse
+### STS ###
+.apt_generated
 .classpath
+.factorypath
 .project
-.settings/
- 
-# Intellij
-.idea/
-*.iml
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
 *.iws
- 
-# Mac
-.DS_Store
+*.iml
+*.ipr
 
-
-# NetBeans specific #
-nbproject
+### NetBeans ###
+nbproject/private/
 build/
 nbbuild/
 dist/
 nbdist/
-nbactions.xml
-nb-configuration.xml
+.nb-gradle/
 
-# Class Files #
+
 *.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
 # Package Files #
 *.jar
 *.war
 *.ear
-*.zip
 
-# Log files
-derby.log
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
