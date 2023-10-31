@@ -1,3 +1,9 @@
+<%-- 
+    Document   : map
+    Created on : 31 Oct 2023, 14:37:35
+    Author     : Quinn Toye
+--%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Insert Team Name Here - Map App</title>
+    <title>Insert Team Name Here - Map</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 
@@ -17,12 +23,21 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <!-- Leaflet library import-->
+    <link rel="stylesheet" type="text/css" href="./css/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="./css/leaflet-loader.css" />
+    <script type='text/javascript' src='./js/jquery.min.js'></script>
+    <script type='text/javascript' src='./js/leaflet.js'></script>
+    <script type='text/javascript' src='./js/leaflet-loader.js'></script>
+    <script type='text/javascript' src='./js/leaflet-layerjson.min.js'></script>
+    
     <!-- Begin page content -->
     <main role="main" class="container">
         <div style="color:red;">${errorMessage}</div>
         <div style="color:green;">${message}</div>
     </main>
+    
+
 
 </head>
 
@@ -34,29 +49,28 @@
 
         <article>
             <header>
-                <h1>Map Application - Home</h1>
+                <h1>The Map</h1>
             </header>
-            
             <section>
-                
-                <div id="homeContent" style="height: 440px; border: 1px solid #AAA;">
-                    <h2>Splash Screen Header</h2>
-                    <p>Splash screen text</p>
-                </div>
-
+                <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
+                <div id="loader"></div>
             </section>
             <hr/>
         </article>
-        
+
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
     
-    
+    <!-- Our JS map script importing-->
+    <script type='text/javascript' src='./js/map/map.js'></script>
+    <script type='text/javascript' src='./js/map/markers.js'></script>
+    <!-- -->
 </body>
 
 <jsp:include page="footer.jsp" />
 
-
 </html>
+

@@ -13,5 +13,21 @@ public class PageController {
     public String homePage(){
         return "index";
     }
+    
+    @RequestMapping("/map")
+    public String mapPage(){
+        return "map";
+    }
+        
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
+    
+    @RequestMapping("/createAccount")
+    public String createAccountPage(){
+        return "createAccount";
+    }
 
+    
 }
