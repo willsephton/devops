@@ -1,4 +1,4 @@
-package org.solent.spring.map.controller;
+package org.solent.devops.user.spring.map.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
