@@ -1,19 +1,23 @@
-package org.solent.devops.user.spring.web;
+package org.solent.devops.user.spring.map;
 
+import org.solent.devops.user.model.MapPoint;
+import org.solent.devops.user.spring.map.repository.MapPointRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-@SpringBootApplication(scanBasePackages = "org.solent.com619.devops.user.spring.web")
-public class SpringBootJspApplication extends SpringBootServletInitializer {
+@SpringBootApplication
+public class MapApplication extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(SpringBootJspApplication.class);
-    }
+	@Bean
+	CommandLineRunner runner(MapPointRepository mapPointRepository) {
+		return args -> {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SpringBootJspApplication.class);
-    }
+			MapPoint point1 = new MapPoint("Solent University", "We go here", "University", 50.90857185116952, -1.4004158721838138);
+			mapPointRepository.save(point1);
+		};
+	}
+
 }
