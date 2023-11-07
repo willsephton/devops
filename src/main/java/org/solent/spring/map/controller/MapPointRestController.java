@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.web.bind.annotation.RequestBody;
 
-/**
- * Created by pingwin on 25.10.16.
- */
+
 @RestController
 public class MapPointRestController {
 	
@@ -33,6 +32,12 @@ public class MapPointRestController {
     public MapPoint getById(@Parameter(description = "id if point to be retreived") @PathVariable(value = "id") long id){
         Optional<MapPoint> mpo = mapPointRepository.findById(id);
         return (mpo.isEmpty()) ? null : mpo.get();
+    }
+    
+    @Operation(summary = "Save a new point to database")
+    @RequestMapping("/save")
+    public MapPoint savePoint(@RequestBody MapPoint newPoint) {
+    return mapPointRepository.save(newPoint);
     }
     
 
