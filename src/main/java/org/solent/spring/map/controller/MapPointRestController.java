@@ -34,6 +34,7 @@ public class MapPointRestController {
         Optional<MapPoint> mpo = mapPointRepository.findById(id);
         return (mpo.isEmpty()) ? null : mpo.get();
     }
+    
 
 
 }
