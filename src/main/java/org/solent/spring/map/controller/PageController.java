@@ -3,15 +3,18 @@ package org.solent.spring.map.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * Created by pingwin on 27.10.16.
- */
+
 @Controller
 public class PageController {
 
     @RequestMapping("/")
     public String homePage(){
         return "index";
+    }
+    
+    @RequestMapping("/home")
+    public String home(){
+        return "home";
     }
     
     @RequestMapping("/map")
@@ -28,6 +31,22 @@ public class PageController {
     public String createAccountPage(){
         return "createAccount";
     }
+    
+    @RequestMapping("/about")
+    public String aboutPage(){
+        return "about";
+    }
+    
+    @RequestMapping("/contact")
+    public String contactPage(){
+        return "contact";
+    }
+    
+    @RequestMapping("/newPoint")
+    public String newPoint(){
+        return "newPoint";
+    }
+
 
     
 }

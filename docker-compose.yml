@@ -2,10 +2,10 @@ version: "3.2"
 
 services: 
     # http://localhost:8080/
-    restsimulator :
+    webapp :
         image: jetty:10.0.17-jdk11
         ports: 
         - "8080:8080"
         volumes:
         - ./target/spring-boot-leaflet-starter-0.0.1-SNAPSHOT.war:/var/lib/jetty/webapps/root.war
-
+    
