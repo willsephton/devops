@@ -1,9 +1,9 @@
-package org.solent.spring.map.controller;
+package org.solent.devops.user.spring.map.controller;
 
 import java.util.Optional;
 
-import org.solent.spring.map.model.MapPoint;
-import org.solent.spring.map.repository.MapPointRepository;
+import org.solent.devops.user.model.MapPoint;
+import org.solent.devops.user.spring.map.repository.MapPointRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

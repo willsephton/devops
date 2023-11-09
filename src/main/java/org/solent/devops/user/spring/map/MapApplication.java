@@ -1,7 +1,7 @@
-package org.solent.spring.map;
+package org.solent.devops.user.spring.map;
 
-import org.solent.spring.map.model.MapPoint;
-import org.solent.spring.map.repository.MapPointRepository;
+import org.solent.devops.user.model.MapPoint;
+import org.solent.devops.user.spring.map.repository.MapPointRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +20,4 @@ public class MapApplication extends SpringBootServletInitializer {
 		};
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(MapApplication.class, args);
-	}
 }
