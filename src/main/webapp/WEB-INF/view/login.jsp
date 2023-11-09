@@ -42,7 +42,7 @@
         <!-- login form
             currently just framework 
             need to implement method/submit etc -->
-        <form action="./login" method="post">
+        <form action="./loginConf" method="post">
             <input type="hidden" name="action" value="login">
             <p>Username: <br><input type="text" name="username" ></input></p>
             <p>Password: <br><input type="password" name="password" ></input></p><br>
@@ -51,7 +51,7 @@
         
         <br>
         <!-- route for user to register if they do not have account -->
-        <a href="./register">Create a new account</a>
+        <a href="./createAccount">Create a new account</a>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

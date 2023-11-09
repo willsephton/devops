@@ -1,6 +1,6 @@
 <%-- 
-    Document   : createAccount
-    Created on : 8 Nov 2023, 17:32:26
+    Document   : createAccountConf
+    Created on : 9 Nov 2023, 10:01:42
     Author     : Quinn Toye
 --%>
 
@@ -35,20 +35,28 @@
 <jsp:include page="header.jsp" />
 
 <body>
-    
+        
     <div>
         <h2>Create Account</h2>
 
-        <!-- create account form
-            currently just framework 
-            need to implement method/submit etc -->
-        <form action="./createAccountDetails" method="post">
-            <input type="hidden" name="action" value="createAccount">
-            <p>Username: <br><input type="text" name="username" ></input></p>
-            <p>Password: <br><input type="password" name="password" ></input></p>
-            <p>Confirm Password: <br><input type="password" name="passwordConf" ></input></p><br>
-            <p><button type="submit">Continue</button></p>
-        </form>
+        <!-- if final create good -->
+        
+            <p><strong>Account Creation Successful!</strong> - Continue to login!</p>
+            <br>            
+            <form action="./login">
+                <input type="submit" value="Login" />
+            </form>
+            
+            
+           
+        <!-- if final create not good -->
+            
+            <p><strong>Account Creation Failed</strong> - try again!</p>     
+            <br>           
+            <form action="./createAccount">
+                <input type="submit" value="Login" />
+            </form>
+        
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
