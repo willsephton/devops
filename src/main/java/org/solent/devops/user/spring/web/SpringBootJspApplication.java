@@ -17,6 +17,7 @@ public class SpringBootJspApplication extends SpringBootServletInitializer {
         return builder.sources(SpringBootJspApplication.class);
     }
     
+    
     public static void main(String[] args) {
         SpringApplication.run(SpringBootJspApplication.class);
     }
