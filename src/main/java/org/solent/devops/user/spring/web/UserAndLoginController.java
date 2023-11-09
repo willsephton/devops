@@ -45,10 +45,10 @@ public class UserAndLoginController {
             HttpSession session) {
         String message = "you have been successfully logged out";
         String errorMessage = "";
-        // logout of session and clear
         session.invalidate();
 
-        return "redirect:/home";
+        // link to index after logout
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/login", method = {RequestMethod.GET})
@@ -71,7 +71,6 @@ public class UserAndLoginController {
 
         model.addAttribute("message", message);
         model.addAttribute("errorMessage", errorMessage);
-        // used to set tab selected
         model.addAttribute("selectedPage", "home");
 
         return "login";
@@ -91,7 +90,6 @@ public class UserAndLoginController {
 
         LOG.debug("login for username=" + username);
 
-        // get current session modifyUser 
         User sessionUser = getSessionUser(session);
         model.addAttribute("sessionUser", sessionUser);
 
@@ -111,7 +109,6 @@ public class UserAndLoginController {
         List<User> userList = userRepository.findByUsername(username);
 
         if ("login".equals(action)) {
-            //todo find and add modifyUser and test password
             LOG.debug("logging in user username=" + username);
             if (userList.isEmpty()) {
                 errorMessage = "cannot find user for username :" + username;
@@ -145,14 +142,12 @@ public class UserAndLoginController {
 
             model.addAttribute("message", message);
             model.addAttribute("errorMessage", errorMessage);
-            // used to set tab selected
             model.addAttribute("selectedPage", "home");
             return "home";
         } else {
             model.addAttribute("errorMessage", "unknown action requested:" + action);
             LOG.error("login page unknown action requested:" + action);
             model.addAttribute("errorMessage", errorMessage);
-            // used to set tab selected
             model.addAttribute("selectedPage", "home");
             return "home";
         }
@@ -173,7 +168,6 @@ public class UserAndLoginController {
         model.addAttribute("sessionUser", sessionUser);
         model.addAttribute("message", message);
         model.addAttribute("errorMessage", errorMessage);
-        // used to set tab selected
         model.addAttribute("selectedPage", "home");
 
         return "register";
@@ -224,8 +218,6 @@ public class UserAndLoginController {
             modifyUser.setPassword(password);
             modifyUser = userRepository.save(modifyUser);
 
-            // if already logged in - keep session modifyUser else set session modifyUser to modifyUser
-            // else set session modifyUser the newly created modifyUser (i.e. automatically log in)
             if (UserRole.ANONYMOUS.equals(sessionUser.getUserRole())) {
                 session.setAttribute("sessionUser", modifyUser);
                 model.addAttribute("sessionUser", modifyUser);
@@ -291,7 +283,6 @@ public class UserAndLoginController {
         }
 
         if (!UserRole.ADMINISTRATOR.equals(sessionUser.getUserRole())) {
-            // if not an administrator you can only access your own account info
             if (!sessionUser.getUsername().equals(username)) {
                 errorMessage = "security non admin viewModifyUser called for username " + username
                         + "which is not the logged in user =" + sessionUser.getUsername();
@@ -329,8 +320,6 @@ public class UserAndLoginController {
             @RequestParam(value = "county", required = false) String county,
             @RequestParam(value = "country", required = false) String country,
             @RequestParam(value = "postcode", required = false) String postcode,
-            @RequestParam(value = "latitude", required = false) String latitude,
-            @RequestParam(value = "longitude", required = false) String longitude,
             @RequestParam(value = "telephone", required = false) String telephone,
             @RequestParam(value = "mobile", required = false) String mobile,
             @RequestParam(value = "password", required = false) String password,
@@ -343,7 +332,6 @@ public class UserAndLoginController {
 
         LOG.debug("post updateUser called for username=" + username);
 
-        // security check if party is allowed to access or modify this party
         User sessionUser = getSessionUser(session);
         model.addAttribute("sessionUser", sessionUser);
 
@@ -373,7 +361,6 @@ public class UserAndLoginController {
 
         User modifyUser = userList.get(0);
 
-        // update password if requested
         if ("updatePassword".equals(action)) {
             if (password == null || !password.equals(password2) || password.length() < 8) {
                 errorMessage = "you must enter two identical passwords with atleast 8 characters";
@@ -390,8 +377,6 @@ public class UserAndLoginController {
             }
         }
 
-        // else update all other properties
-        // only admin can update modifyUser role aand enabled
         if (UserRole.ADMINISTRATOR.equals(sessionUser.getUserRole())) {
             try {
                 UserRole role = UserRole.valueOf(userRole);
@@ -433,8 +418,7 @@ public class UserAndLoginController {
         modifyUser = userRepository.save(modifyUser);
 
         model.addAttribute("modifyUser", modifyUser);
-
-        // add message if there are any 
+ 
         model.addAttribute("errorMessage", errorMessage);
         model.addAttribute("message", "User " + modifyUser.getUsername() + " updated successfully");
 
@@ -443,10 +427,7 @@ public class UserAndLoginController {
         return "viewModifyUser";
     }
 
-    /*
-     * Default exception handler, catches all exceptions, redirects to friendly
-     * error page. Does not catch request mapping errors
-     */
+
     @ExceptionHandler(Exception.class)
     public String myExceptionHandler(final Exception e, Model model,
             HttpServletRequest request
@@ -454,7 +435,7 @@ public class UserAndLoginController {
         final StringWriter sw = new StringWriter();
         final PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
-        final String strStackTrace = sw.toString(); // stack trace as a string
+        final String strStackTrace = sw.toString();
         String urlStr = "not defined";
         if (request != null) {
             StringBuffer url = request.getRequestURL();
@@ -463,8 +444,7 @@ public class UserAndLoginController {
         model.addAttribute("requestUrl", urlStr);
         model.addAttribute("strStackTrace", strStackTrace);
         model.addAttribute("exception", e);
-        //logger.error(strStackTrace); // send to logger first
-        return "error"; // default friendly exception message for sessionUser
+        return "error";
     }
 
 }

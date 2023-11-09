@@ -33,7 +33,6 @@ public class MVCController {
         return sessionUser;
     }
 
-    // this redirects calls to the root of our application to index.html
     @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model) {
         return "redirect:/index.html";
@@ -46,11 +45,9 @@ public class MVCController {
             Model model,
             HttpSession session) {
 
-        // get sessionUser from session
         User sessionUser = getSessionUser(session);
         model.addAttribute("sessionUser", sessionUser);
 
-        // used to set tab selected
         model.addAttribute("selectedPage", "home");
 
         String message = "";
@@ -65,11 +62,9 @@ public class MVCController {
     @RequestMapping(value = "/about", method = {RequestMethod.GET, RequestMethod.POST})
     public String aboutCart(Model model, HttpSession session) {
 
-        // get sessionUser from session
         User sessionUser = getSessionUser(session);
         model.addAttribute("sessionUser", sessionUser);
         
-        // used to set tab selected
         model.addAttribute("selectedPage", "about");
         return "about";
     }
@@ -77,20 +72,14 @@ public class MVCController {
     @RequestMapping(value = "/contact", method = {RequestMethod.GET, RequestMethod.POST})
     public String contactCart(Model model, HttpSession session) {
 
-        // get sessionUser from session
         User sessionUser = getSessionUser(session);
         model.addAttribute("sessionUser", sessionUser);
         
-        // used to set tab selected
         model.addAttribute("selectedPage", "contact");
         return "contact";
     }
 
 
-    /*
-     * Default exception handler, catches all exceptions, redirects to friendly
-     * error page. Does not catch request mapping errors
-     */
     @ExceptionHandler(Exception.class)
     public String myExceptionHandler(final Exception e, Model model, HttpServletRequest request) {
         final StringWriter sw = new StringWriter();

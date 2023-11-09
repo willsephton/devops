@@ -6,9 +6,6 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springdoc.core.customizers.OpenApiCustomiser;
 import org.springframework.stereotype.Component;
 
-/**
- * this customises the OpenApi spec to include basic authorisation
- */
 @Component
 public class AuthOpenApiCustomizer implements OpenApiCustomiser {
 	@Override
