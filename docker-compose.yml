@@ -8,4 +8,18 @@ services:
         - "8080:8080"
         volumes:
         - ./target/spring-boot-leaflet-starter-0.0.1-SNAPSHOT.war:/var/lib/jetty/webapps/root.war
+    nginx:
+        image: nginx:1.15-alpine
+        ports:
+        - "80:80"
+        - "443:443"
+        volumes:
+        - ./data/nginx:/etc/nginx/conf.d
+        - ./data/certbot/conf:/etc/letsencrypt
+        - ./data/certbot/www:/var/www/certbot
+    certbot:
+        image: certbot/certbot
+        volumes:
+        - ./data/certbot/conf:/etc/letsencrypt
+        - ./data/certbot/www:/var/www/certbot
     
