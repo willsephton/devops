@@ -6,9 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-        </div> <!-- /container -->
-
         <footer class="footer">
+            <br>
             <div class="container">
                 <p class="text-muted">Place sticky footer content here.</p>
             </div>

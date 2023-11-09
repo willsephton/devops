@@ -40,8 +40,16 @@
             <section>
                 
                 <div id="homeContent" style="height: 440px; border: 1px solid #AAA;">
-                    <h2>Splash Screen Header</h2>
-                    <p>Splash screen text</p>
+                    <h2>Insert Team Name Here - Map Application</h2>
+                    <p>Team Members & Roles:</p>
+                    <ul>
+                        <li>Iona Pitt - Back End</li>
+                        <li>Kyle Roberts - Client Side</li>
+                        <li>William Sephton - Back End</li>
+                        <li>Quinn Toye - Client Side</li>
+                        <li>Blaise Tyree - Back End</li>
+                    </ul>
+
                 </div>
 
             </section>
@@ -57,6 +65,5 @@
 </body>
 
 <jsp:include page="footer.jsp" />
-
 
 </html>

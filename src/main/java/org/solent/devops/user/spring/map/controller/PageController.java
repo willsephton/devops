@@ -23,8 +23,13 @@ public class PageController {
     }
         
     @RequestMapping("/login")
-    public String login(){
+    public String loginPage(){
         return "login";
+    }
+    
+    @RequestMapping("/loginConf")
+    public String loginConfPage(){
+        return "loginConf";
     }
     
     @RequestMapping("/createAccount")
@@ -32,6 +37,16 @@ public class PageController {
         return "createAccount";
     }
     
+<<<<<<< HEAD:src/main/java/org/solent/spring/map/controller/PageController.java
+    @RequestMapping("/createAccountDetails")
+    public String createAccountDetailsPage(){
+        return "createAccountDetails";
+    }
+    
+    @RequestMapping("/createAccountConf")
+    public String createAccountConfPage(){
+        return "createAccountConf";
+=======
     @RequestMapping("/about")
     public String aboutPage(){
         return "about";
@@ -45,6 +60,7 @@ public class PageController {
     @RequestMapping("/newPoint")
     public String newPoint(){
         return "newPoint";
+>>>>>>> cab85bf7d0b6a7d66f2896fc1e0016d4d93d754f:src/main/java/org/solent/devops/user/spring/map/controller/PageController.java
     }
 
 
