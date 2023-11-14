@@ -52,6 +52,26 @@ public class MapPointRestController {
         }
     }
     
+    @Operation(summary = "Update a point on the database")
+    @RequestMapping("/update/{id}")
+    public ResponseEntity<MapPoint> updatePoint(@Parameter(description = "id of point to be update") @PathVariable(value = "id") long id, @RequestBody MapPoint pointUpdates) {
+        Optional<MapPoint> optionalMapPoint = mapPointRepository.findById(id);
+        
+        if (optionalMapPoint.isPresent()){
+            MapPoint mapPoint = optionalMapPoint.get();
+            
+            mapPoint.setName(pointUpdates.getName());
+            mapPoint.setDescription(pointUpdates.getDescription());
+            mapPoint.setCategory(pointUpdates.getCategory());
+            mapPoint.setLat(pointUpdates.getLat());
+            mapPoint.setLng(pointUpdates.getLng());
+            mapPointRepository.save(mapPoint);
+            return ResponseEntity.ok(mapPoint);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
 
 
 }
