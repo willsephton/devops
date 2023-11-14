@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -29,7 +30,7 @@ public class MapPointRestController {
 
     @Operation(summary = "Get a specific map point by id")
     @RequestMapping("/get/{id}")
-    public MapPoint getById(@Parameter(description = "id if point to be retreived") @PathVariable(value = "id") long id){
+    public MapPoint getById(@Parameter(description = "id of point to be retreived") @PathVariable(value = "id") long id){
         Optional<MapPoint> mpo = mapPointRepository.findById(id);
         return (mpo.isEmpty()) ? null : mpo.get();
     }
@@ -38,6 +39,17 @@ public class MapPointRestController {
     @RequestMapping("/save")
     public MapPoint savePoint(@RequestBody MapPoint newPoint) {
     return mapPointRepository.save(newPoint);
+    }
+    
+    @Operation(summary = "Remove a point from database")
+    @RequestMapping("/delete/{id}")
+    public ResponseEntity<Void> removePoint(@Parameter(description = "id of point to be removed") @PathVariable(value = "id") long id) {
+        if (mapPointRepository.existsById(id)){
+            mapPointRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
     
 
