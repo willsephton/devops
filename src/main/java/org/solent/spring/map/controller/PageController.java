@@ -23,13 +23,28 @@ public class PageController {
     }
         
     @RequestMapping("/login")
-    public String login(){
+    public String loginPage(){
         return "login";
+    }
+    
+    @RequestMapping("/loginConf")
+    public String loginConfPage(){
+        return "loginConf";
     }
     
     @RequestMapping("/createAccount")
     public String createAccountPage(){
         return "createAccount";
+    }
+    
+    @RequestMapping("/createAccountDetails")
+    public String createAccountDetailsPage(){
+        return "createAccountDetails";
+    }
+    
+    @RequestMapping("/createAccountConf")
+    public String createAccountConfPage(){
+        return "createAccountConf";
     }
     
     @RequestMapping("/about")
