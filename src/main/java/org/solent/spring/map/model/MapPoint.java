@@ -1,4 +1,4 @@
-package org.solent.devops.user.model;
+package org.solent.spring.map.model;
 
 
 import javax.persistence.Entity;

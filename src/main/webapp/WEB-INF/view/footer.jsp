@@ -4,7 +4,7 @@
     Author     : Blaise
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         </div> <!-- /container -->
 
