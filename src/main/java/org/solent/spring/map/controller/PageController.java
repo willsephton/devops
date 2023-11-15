@@ -12,6 +12,11 @@ public class PageController {
         return "index";
     }
     
+    @RequestMapping("/index")
+    public String getHomePage(){
+        return "index";
+    }
+    
     @RequestMapping("/home")
     public String home(){
         return "home";
@@ -45,6 +50,16 @@ public class PageController {
     @RequestMapping("/newPoint")
     public String newPoint(){
         return "newPoint";
+    }
+    
+    @RequestMapping("/addMapMarker")
+    public String addMapPage(){
+        return "addMapMarker";
+    }
+    
+    @RequestMapping("/deleteMapMarker")
+    public String deleteMapPage(){
+        return "deleteMapMarker";
     }
 
 
