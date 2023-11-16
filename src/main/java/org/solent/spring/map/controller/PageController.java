@@ -13,11 +13,6 @@ public class PageController {
         return "index";
     }
     
-    @RequestMapping("/index")
-    public String getHomePage(){
-        return "index";
-    }
-    
     @RequestMapping("/home")
     public String home(){
         return "home";
