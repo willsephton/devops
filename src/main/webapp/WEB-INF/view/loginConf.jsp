@@ -1,7 +1,6 @@
-
 <%-- 
-    Document   : login
-    Created on : 8 Nov 2023, 17:24:16
+    Document   : loginConf
+    Created on : 9 Nov 2023, 09:50:52
     Author     : Quinn Toye
 --%>
 
@@ -40,19 +39,22 @@
     <div>
         <h2>Login</h2>
 
-        <!-- login form
-            currently just framework 
-            need to implement method/submit etc -->
-        <form action="./login" method="post">
-        <input type="hidden" name="action" value="login">
-        <p>Username <input type="text" name="username" ></input></p><BR>
-        <p>Password <input type="password" name="password" ></input></p>
-        <p><button type="submit" >Log In</button></p>
-        </form> 
+        <!-- if login good -->
         
-        <br>
-        <!-- route for user to register if they do not have account -->
-        <a href="./createAccount">Create a new account</a>
+        <p><strong>Login Successful!</strong></p>        
+            <br>            
+            <form action="/">
+                <input type="submit" value="Continue" />
+            </form>
+            
+        <!-- if login not good -->
+            
+            <p><strong>Login Unsuccessful - try again!</strong></p>     
+            <br>           
+            <form action="./login">
+                <input type="submit" value="Login" />
+            </form>
+        
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
