@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : login
     Created on : 8 Nov 2023, 17:24:16
@@ -42,12 +43,12 @@
         <!-- login form
             currently just framework 
             need to implement method/submit etc -->
-        <form action="./loginConf" method="post">
-            <input type="hidden" name="action" value="login">
-            <p>Username: <br><input type="text" name="username" ></input></p>
-            <p>Password: <br><input type="password" name="password" ></input></p><br>
-            <p><button type="submit" >Log In</button></p>
-        </form>
+        <form action="./login" method="post">
+        <input type="hidden" name="action" value="login">
+        <p>Username <input type="text" name="username" ></input></p><BR>
+        <p>Password <input type="password" name="password" ></input></p>
+        <p><button type="submit" >Log In</button></p>
+        </form> 
         
         <br>
         <!-- route for user to register if they do not have account -->

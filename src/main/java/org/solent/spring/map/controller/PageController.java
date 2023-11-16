@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @RequestMapping("/")
-    public String homePage(){
-        return "index";
-    }
     
     @RequestMapping("/index")
     public String getHomePage(){
@@ -21,6 +17,7 @@ public class PageController {
     public String home(){
         return "home";
     }
+
     
     @RequestMapping("/map")
     public String mapPage(){
