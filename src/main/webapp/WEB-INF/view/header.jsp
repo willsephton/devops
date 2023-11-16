@@ -1,5 +1,5 @@
 <%-- 
-    Document   : hearder.jsp
+    Document   : header.jsp
     Created on : 30 Oct 2023, 16:12:46
     Author     : Blaise
 --%>
@@ -46,14 +46,23 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">InsertTeamNameHere - MapApp</a>
+                        <a class="navbar-brand" href="./index">InsertTeamNameHere - MapApp</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li <% if ("home".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a href="./home">Home</a></li> 
-                            <li <% if ("map".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./map">Map</a></li> 
+                            <li <% if ("index".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a href="./index">Home</a></li> 
+                            
+                            <li class="dropdown" >
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Map<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li <% if ("map".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./map">Open Map</a></li>
+                                    <li <% if ("addMapMarker".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./addMapMarker">Add a Marker</a></li>
+                                    <li <% if ("deleteMapMarker".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./deleteMapMarker">Delete a Marker</a></li>
+                                </ul>
+                            </li> 
+                            
                             <li <% if ("about".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./about">About</a></li> 
-                            <li <% if ("contact".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./contact">Contact</a></li>                          
+                            <li <% if ("contact".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./contact">Contact</a></li>     
                             
                             <c:if test="${sessionUser.userRole =='ADMINISTRATOR'}">
                                 <li class="dropdown" >

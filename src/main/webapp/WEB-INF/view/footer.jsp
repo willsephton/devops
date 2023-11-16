@@ -4,13 +4,27 @@
     Author     : Blaise
 --%>
 
-<<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
         </div> <!-- /container -->
 
         <footer class="footer">
             <div class="container">
-                <p class="text-muted">Place sticky footer content here.</p>
+                <div>
+                    <h4>Useful Links:</h4>
+                </div>
+                <div style="display: inline">
+                        <div <% if ("index".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %>>
+                            <a href="./index" title="Home Page">
+                                <img src="./images/homeicon.png" alt="Home Page" style="width: 50px; height:50px;"/>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://github.com/willsephton/devops/tree/master" title="Team Github Repository">
+                                <img src="./images/githublogo.png" alt="Team Github Repository" style="width: 50px; height:50px;"/>
+                            </a>
+                        </div>
+                </div>
             </div>
         </footer>
 
