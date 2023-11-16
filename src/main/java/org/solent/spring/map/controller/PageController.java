@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @RequestMapping("/")
-    public String homePage(){
+    
+    @RequestMapping("/index")
+    public String getHomePage(){
         return "index";
     }
     
@@ -16,6 +17,7 @@ public class PageController {
     public String home(){
         return "home";
     }
+
     
     @RequestMapping("/map")
     public String mapPage(){
@@ -45,6 +47,16 @@ public class PageController {
     @RequestMapping("/newPoint")
     public String newPoint(){
         return "newPoint";
+    }
+    
+    @RequestMapping("/addMapMarker")
+    public String addMapPage(){
+        return "addMapMarker";
+    }
+    
+    @RequestMapping("/deleteMapMarker")
+    public String deleteMapPage(){
+        return "deleteMapMarker";
     }
 
 
