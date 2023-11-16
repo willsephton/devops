@@ -2,6 +2,21 @@ version: "3.2"
 
 services: 
     # http://localhost:8080/
+    cli:
+        build: ./cli
+        image: devops/letsencrypt-docker-compose-cli
+        user: ${CURRENT_USER}
+        group_add:
+        - ${DOCKER_GROUP}
+        environment:
+        - COMPOSE_PROJECT_NAME
+        - CURRENT_USER
+        - DOCKER_GROUP
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ./:/workdir
+        profiles:
+        - config
     webapp :
         image: jetty:10.0.17-jdk11
         ports: 
@@ -22,4 +37,5 @@ services:
         volumes:
         - ./data/certbot/conf:/etc/letsencrypt
         - ./data/certbot/www:/var/www/certbot
+    
     
