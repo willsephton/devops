@@ -1,3 +1,9 @@
+<%-- 
+    Document   : createAccountConf
+    Created on : 9 Nov 2023, 10:01:42
+    Author     : Quinn Toye
+--%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,7 +12,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Insert Team Name Here - Map App</title>
+    <title>ITNH - Create Account</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 
@@ -29,42 +35,35 @@
 <jsp:include page="header.jsp" />
 
 <body>
+        
+    <div>
+        <h2>Create Account</h2>
 
-    <div class="container">
-
-        <article>
-            <header>
-                <h1>Map Application - Home</h1>
-            </header>
+        <!-- if final create good -->
+        
+            <p><strong>Account Creation Successful!</strong> - Continue to login!</p>
+            <br>            
+            <form action="./login">
+                <input type="submit" value="Login" />
+            </form>
             
-            <section>
-                
-                <div id="homeContent" style="height: 440px; border: 1px solid #AAA;">
-                    <h2>Insert Team Name Here - Map Application</h2>
-                    <p>Team Members & Roles:</p>
-                    <ul>
-                        <li>Iona Pitt - Back End</li>
-                        <li>Kyle Roberts - Client Side</li>
-                        <li>William Sephton - Back End</li>
-                        <li>Quinn Toye - Client Side</li>
-                        <li>Blaise Tyree - Back End</li>
-                    </ul>
-
-                </div>
-
-            </section>
-            <hr/>
-        </article>
+            
+           
+        <!-- if final create not good -->
+            
+            <p><strong>Account Creation Failed</strong> - try again!</p>     
+            <br>           
+            <form action="./createAccount">
+                <input type="submit" value="Login" />
+            </form>
         
     </div>
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
-    
     
 </body>
 
 <jsp:include page="footer.jsp" />
-
 
 </html>
