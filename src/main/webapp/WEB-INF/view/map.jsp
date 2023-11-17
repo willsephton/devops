@@ -2,6 +2,8 @@
     Document   : map
     Created on : 31 Oct 2023, 14:37:35
     Author     : Quinn Toye
+    Updated    : Kyle Roberts 17 Nov 2023, 14:46:00
+    Update Description: Changed the page title that is displayed to the user
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -12,7 +14,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Insert Team Name Here - Map</title>
+    <title>Map View | Insert Team Name Here - Map</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 

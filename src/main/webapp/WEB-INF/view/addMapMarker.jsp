@@ -6,13 +6,15 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page language="java" import="org.solent.spring.map.controller.MapPointRestController"%>
+<%@page language="java" import="org.solent.spring.map.model.MapPoint"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Insert Team Name Here - Add Map Marker</title>
+        <title>Add Map Marker | Insert Team Name Here - Add Map Marker</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 
@@ -47,30 +49,35 @@
         <div class="container">
             
             <h1>Add a Map Marker</h1>
+            
+            <hr/>
     
-            <form>
+            <form action="./save" method="POST">
                 <div>
                     <label>Marker Name:</label>
-                    <input type="text" id="markerName" placeholder="Name">
+                    <input type="text" name="markerName" placeholder="Name">
                 </div>
                 <div>
                     <label>Description:</label>
-                    <input type="text" id="description" placeholder="Description">
+                    <input type="text" name="description" placeholder="Description">
                 </div>
                 <div>
                     <label>Category:</label>
-                    <input type="text" id="category" placeholder="Category">
+                    <input type="text" name="category" placeholder="Category">
                 </div>
                 <div>
                     <label>Latitude:</label>
-                    <input type="text" id="latitude" placeholder="Latitude">
+                    <input type="text" name="latitude" placeholder="Latitude">
                 </div>
                 <div>
                     <label>Longitude:</label>
-                    <input type="text" id="longitude" placeholder="Longitude">
+                    <input type="text" name="longitude" placeholder="Longitude">
                 </div>
-                <button>Add</button>
+                
+                <button class="btn" type="submit" id="createBtn" >Create New Point</button>          
             </form>
+            
+          
             
             <hr/>
         </div>
