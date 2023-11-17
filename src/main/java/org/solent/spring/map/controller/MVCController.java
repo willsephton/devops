@@ -1,6 +1,10 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+
+    Updated: Kyle Roberts 17 Nov 2023, 14:46:00
+    Update Description: Changed the a line of code so that when the application opens
+                        it correctly displays and takes you to the index page
  */
 package org.solent.spring.map.controller;
 
@@ -40,7 +44,7 @@ public class MVCController {
     // this redirects calls to the root of our application to index.html
     @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST})
     public String index(Model model) {
-        return "redirect:/index.html";
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/home", method = {RequestMethod.GET, RequestMethod.POST})

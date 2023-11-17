@@ -2,6 +2,9 @@
     Document   : header.jsp
     Created on : 30 Oct 2023, 16:12:46
     Author     : Blaise
+    Updated    : Kyle Roberts 17 Nov 2023, 14:46:00
+    Update Description: Updated the nav bar to include a drop down from the Map button
+                        to access the map itself and to modify/ add points to said map
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -51,13 +54,11 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li <% if ("index".equals(request.getAttribute("selectedPage"))) {%> class="active"  <% } %> ><a href="./index">Home</a></li> 
-                            
                             <li class="dropdown" >
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Map<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li <% if ("map".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./map">Open Map</a></li>
-                                    <li <% if ("addMapMarker".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./addMapMarker">Add a Marker</a></li>
-                                    <li <% if ("deleteMapMarker".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./deleteMapMarker">Delete a Marker</a></li>
+                                    <li <% if ("pointList".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %>><a href="./pointList">Add/Edit Points</a></li>
                                 </ul>
                             </li> 
                             
