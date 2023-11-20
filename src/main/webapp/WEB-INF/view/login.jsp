@@ -3,17 +3,25 @@
     Document   : login
     Created on : 8 Nov 2023, 17:24:16
     Author     : Quinn Toye
+    Updated: Kyle Roberts 20 Nov 2023, 13:08:00
+    Updated Description: Added i18n 
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%><%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
-<html>
+<html lang="${cookie['lang'].value}">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>ITNH - Login</title>
+    <title>Login | Insert Team Name Here - Map App</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 
@@ -38,21 +46,21 @@
 <body>
         
     <div>
-        <h2>Login</h2>
+        <h2><fmt:message key="label.login" /></h2>
 
         <!-- login form
             currently just framework 
             need to implement method/submit etc -->
         <form action="./login" method="post">
         <input type="hidden" name="action" value="login">
-        <p>Username <input type="text" name="username" ></input></p><BR>
-        <p>Password <input type="password" name="password" ></input></p>
-        <p><button type="submit" >Log In</button></p>
+        <p><fmt:message key="label.username" /> <input type="text" name="username" ></input></p><BR>
+        <p><fmt:message key="label.password" /> <input type="password" name="password" ></input></p>
+        <p><button type="submit" ><fmt:message key="label.login" /></button></p>
         </form> 
         
         <br>
         <!-- route for user to register if they do not have account -->
-        <a href="./createAccount">Create a new account</a>
+        <a href="./createAccount"><fmt:message key="label.createNewAccount" /></a>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

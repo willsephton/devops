@@ -2,12 +2,19 @@
     Document   : PointListJSP.jsp
     Created on : 17 Nov 2023, 14:46:00
     Author     : Kyle Roberts
+    Updated: Kyle Roberts 20 Nov 2023, 13:08:00
+    Updated Description: Added i18n 
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
-<html>
+<html lang="${cookie['lang'].value}">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -44,13 +51,13 @@
 
 	<div class="container">
 
-		    <H1>Home</H1>
+		    <H1><fmt:message key="label.home" /></H1>
 
 		
 
 		<article>
 			<header>
-				<h1>Map Points</h1>
+				<h1><fmt:message key="label.mapPoints" /></h1>
 				<p></p>
 			</header>
 			<div style="color: red;">${errorMessage}</div>
@@ -59,13 +66,13 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th scope="col">Id</th>
-						<th scope="col">name</th>
-						<th scope="col">description</th>
-						<th scope="col">category</th>
-						<th scope="col">Latitude</th>
-						<th scope="col">Longitude</th>
-						<th scope="col">photoUrl</th>
+						<th scope="col"><fmt:message key="label.id" /></th>
+						<th scope="col"><fmt:message key="label.name" /></th>
+						<th scope="col"><fmt:message key="label.description" /></th>
+						<th scope="col"><fmt:message key="label.category" /></th>
+						<th scope="col"><fmt:message key="label.latitude" /></th>
+						<th scope="col"><fmt:message key="label.longitude" /></th>
+						<th scope="col"><fmt:message key="label.photoURL" /></th>
 						<th></th>
 					</tr>
 				</thead>
@@ -83,12 +90,12 @@
 								<form action="./viewModifyPoint" method="POST">
 									<input type="hidden" name="pointId" value="${mapPoint.id}">
 									<input type="hidden" name="action" value="modifyPoint">
-									<button class="btn" type="submit">Modify Point</button>
+									<button class="btn" type="submit"><fmt:message key="label.modifyBtn" /></button>
 								</form>
 								<form action="./viewModifyPoint" method="POST">
 									<input type="hidden" name="pointId" value="${mapPoint.id}">
 									<input type="hidden" name="action" value="deletePoint">
-									<button class="btn" type="submit">Delete Point</button>
+									<button class="btn" type="submit"><fmt:message key="label.deleteBtn" /></button>
 								</form>
 							</td>
 						</tr>
@@ -100,7 +107,7 @@
 			<form action="./viewModifyPoint" method="POST">
 				<input type="hidden" name="pointId" value="${mapPoint.id}">
 				<input type="hidden" name="action" value="newPoint">
-				<button class="btn" type="submit">Add Point</button>
+				<button class="btn" type="submit"><fmt:message key="label.addBtn" /></button>
 			</form>
 
 			<hr />
