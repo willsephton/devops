@@ -1,3 +1,8 @@
+/*
+    Updated: Kyle Roberts 17 Nov 2023, 14:46:00
+    Update Description: Updated the mapoint page to include a definition for the photoUrl
+*/
+
 package org.solent.spring.map.model;
 
 
@@ -15,6 +20,7 @@ public class MapPoint {
     private String category;
     private double lat;
     private double lng;
+    private String photoUrl;
 
 
     @SuppressWarnings("unused")
@@ -77,6 +83,13 @@ public class MapPoint {
         this.lng = lng;
     }
 
+     public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
 
     @Override
     public String toString() {
@@ -87,6 +100,7 @@ public class MapPoint {
                 ", category='" + category + '\'' +
                 ", lat=" + lat +
                 ", lng=" + lng +
+                ", photo=" + photoUrl +
                 '}';
     }
 }

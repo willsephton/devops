@@ -1,12 +1,24 @@
+<%-- 
+    Updated: Kyle Roberts 20 Nov 2023, 13:08:00
+    Updated Description: Added i18n 
+--%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
-<html>
+<html lang="${cookie['lang'].value}">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Insert Team Name Here - Map App</title>
+    <title>Home | Insert Team Name Here - Map App</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 
@@ -34,20 +46,20 @@
 
         <article>
             <header>
-                <h1>Map Application - Home</h1>
+                <h1>Map Application - <fmt:message key="label.home" /></h1>
             </header>
             
             <section>
                 
                 <div id="homeContent" style="height: 440px; border: 1px solid #AAA;">
                     <h2>Insert Team Name Here - Map Application</h2>
-                    <p>Team Members & Roles:</p>
+                    <p><fmt:message key="label.teamMemberRoles" /></p>
                     <ul>
-                        <li>Iona Pitt - Back End</li>
-                        <li>Kyle Roberts - Client Side</li>
-                        <li>William Sephton - Back End</li>
-                        <li>Quinn Toye - Client Side</li>
-                        <li>Blaise Tyree - Back End</li>
+                        <li>Iona Pitt - <fmt:message key="label.backEnd" /></li>
+                        <li>Kyle Roberts - <fmt:message key="label.clientSide" /></li>
+                        <li>William Sephton - <fmt:message key="label.backEnd" /></li>
+                        <li>Quinn Toye - <fmt:message key="label.clientSide" /></li>
+                        <li>Blaise Tyree - <fmt:message key="label.backEnd" /></li>
                     </ul>
 
                 </div>
