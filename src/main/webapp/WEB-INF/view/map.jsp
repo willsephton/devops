@@ -4,12 +4,20 @@
     Author     : Quinn Toye
     Updated    : Kyle Roberts 17 Nov 2023, 14:46:00
     Update Description: Changed the page title that is displayed to the user
+    Updated: Kyle Roberts 20 Nov 2023, 13:08:00
+    Updated Description: Added i18n 
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
-<html>
+<html lang="${cookie['lang'].value}">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -51,7 +59,7 @@
 
         <article>
             <header>
-                <h1>The Map</h1>
+                <h1><fmt:message key="label.theMap" /></h1>
             </header>
             <section>
                 <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>

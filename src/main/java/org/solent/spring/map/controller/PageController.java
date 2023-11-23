@@ -209,8 +209,7 @@ public class PageController {
 
 		return "ViewModifyPointJsp";
 	}
-
-    
+        
     @RequestMapping("/index")
     public String getHomePage(){
         return "index";
@@ -276,7 +275,8 @@ public class PageController {
     public String deleteMapPage(){
         return "deleteMapMarker";
     }
-
-
-    
+    @RequestMapping("/changeLocaleSpring")
+    public String getChangeLocalPage(){
+        return "changeLocaleSpring";
+    }
 }

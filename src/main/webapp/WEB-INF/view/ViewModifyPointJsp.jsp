@@ -2,12 +2,20 @@
     Document   : viewModifyPointList.jsp
     Created on : 17 Nov 2023, 14:46:00
     Author     : Kyle Roberts
+    Updated: Kyle Roberts 20 Nov 2023, 13:08:00
+    Updated Description: Added i18n 
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
+
 <!DOCTYPE html>
-<html>
+<html lang="${cookie['lang'].value}">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -48,7 +56,7 @@
 
 		<article>
 			<header>
-				<h1>Map Point Create or Update</h1>
+				<h1><fmt:message key="label.mapPointCreateorUpdate" /></h1>
 			</header>
 			<div style="color: red;">${errorMessage}</div>
 			<div style="color: green;">${message}</div>
@@ -57,43 +65,43 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Attribute</th>
-							<th>Value</th>
+							<th><fmt:message key="label.attribute" /></th>
+							<th><fmt:message key="label.value" /></th>
 						</tr>
 					</thead>
 
 					<tbody>
 						<tr>
-							<td>Id</td>
+							<td><fmt:message key="label.id" /></td>
 							<td>${mapPoint.id}</td>
 						</tr>
 						<tr>
-							<td>name</td>
+							<td><fmt:message key="label.name" /></td>
 							<td><input type="text" name="pointName"
 								value="${mapPoint.name}" /></td>
 						</tr>
 						<tr>
-							<td>description</td>
+							<td><fmt:message key="label.description" /></td>
 							<td><input type="text" name="pointDescription"
 								value="${mapPoint.description}" /></td>
 						</tr>
 						<tr>
-							<td>category</td>
+							<td><fmt:message key="label.category" /></td>
 							<td><input type="text" name="pointCategory"
 								value="${mapPoint.category}" /></td>
 						</tr>
 						<tr>
-							<td>Latitude</td>
+							<td><fmt:message key="label.latitude" /></td>
 							<td><input type="text" name="pointlat"
 								value="${mapPoint.lat}" /></td>
 						</tr>
 						<tr>
-							<td>Longitude</td>
+							<td><fmt:message key="label.longitude" /></td>
 							<td><input type="text" name="pointlon"
 								value="${mapPoint.lng}" /></td>
 						</tr>
 						<tr>
-							<td>photoUrl</td>
+							<td><fmt:message key="label.photoURL" /></td>
 							<td>${mapPoint.photoUrl}</td>
 						</tr>
 					</tbody>
@@ -101,13 +109,13 @@
 				<input type="hidden" name="pointId" value="${mapPoint.id}" />
 				<input type="hidden" name="pointphotoUrl" value="${mapPoint.photoUrl}" />
 				<input type="hidden" name="action" value="updatePoint">
-				<button class="btn" type="submit">Modify / Create Point</button>
+				<button class="btn" type="submit"><fmt:message key="label.modifyCreateBtn" /></button>
 			</form>
 
         <!-- adding photo -->
         <!-- see https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial -->
         <div>
-           <label>Photo: </label>
+           <label><fmt:message key="label.photo" /> </label>
            <img src="./user-photos/${mapPoint.id}/${mapPoint.photoUrl}" alt="${mapPoint.name} ${mapPoint.id} image" width="100" height="100" />
            
            
@@ -115,7 +123,7 @@
                <input class="btn" type="file" name="image" accept="image/png, image/jpeg" capture="camera">
                <input type="hidden" name="pointId" value="${mapPoint.id}" />
                 <input type="hidden" name="action" value="updatePointPhoto">
-               <button class="btn" type="submit" >Update Photo</button>
+               <button class="btn" type="submit" ><fmt:message key="label.updatePhoto" /></button>
            </form>
         </div>
 

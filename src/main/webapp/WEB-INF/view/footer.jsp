@@ -5,16 +5,27 @@
     Updated    : Kyle Roberts 17 Nov 2023, 14:46:00
     Update Description: Inputted image links to home page and github repo, and added them into a table  
                         to make them inline vertically
+    Updated: Kyle Roberts 20 Nov 2023, 13:08:00
+    Updated Description: Added i18n 
+
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
+
+<fmt:setLocale value="${cookie['lang'].value}"/>
+<fmt:setBundle basename="messages"/>
+
+<html lang="${cookie['lang'].value}">
         </div> <!-- /container -->
 
         <footer class="footer">
             <div class="container">
                 <div>
-                    <h4>Useful Links:</h4>
+                    <h4><fmt:message key="label.usefulLinks" /></h4>
                 </div>
                 <div style="display: inline">
                     <table>
