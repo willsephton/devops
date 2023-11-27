@@ -30,6 +30,31 @@ services:
         volumes:
           - my-db:/var/lib/mysql
           
+    nginx:
+          image: nginx:latest
+          ports:
+            - 80:80
+
+    prometheus:
+          image: prom/prometheus
+          ports:
+            - "9090:9090"  # Prometheus web interface port
+          volumes:
+            - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Mount the Prometheus config file
+
+    mysql-exporter:
+          image: prom/mysqld-exporter:v0.13.0
+          command:
+            - "--collect.global_status"
+            - "--collect.global_variables"
+            # Add more flags for specific metrics as needed
+          ports:
+            - "9104:9104"  # Expose exporter's port for Prometheus to scrape
+          depends_on:
+           - db 
+          environment:
+            - DATA_SOURCE_NAME=user:password@(db:3306)/database
+          
 # Names our volume
 volumes:
   my-db:
