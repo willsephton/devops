@@ -5,7 +5,7 @@ Repository for AE1 DevOps COM619 - Insert Team Name Here
 | -------- | ------- |
 | Kyle Roberts  | Clientside    |
 | Quinn Toye | Clientside     |
-| Iona Pitt    | Backend, Documentation & Organisation    |
+| Iona Pitt    | Backend, GitHub repo Organisation    |
 | Blaise Tyree    | Backend    |
 | William Sephton  | Backend    |
 
