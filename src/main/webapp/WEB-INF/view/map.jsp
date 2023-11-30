@@ -62,6 +62,11 @@
                 <h1><fmt:message key="label.theMap" /></h1>
             </header>
             <section>
+                <p>Get my location!</p>
+                <button onclick="getLocation()">Go!</button>
+                <p id="geolocation"></p>
+            </section>
+            <section>
                 <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
                 <div id="loader"></div>
             </section>
@@ -70,6 +75,42 @@
 
 
     </div>
+            
+    
+
+    <script>
+        const x = document.getElementById("geolocation");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function showError(error) {
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              x.innerHTML = "User denied the request for Geolocation."
+              break;
+            case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "Location information is unavailable."
+              break;
+            case error.TIMEOUT:
+              x.innerHTML = "The request to get user location timed out."
+              break;
+            case error.UNKNOWN_ERROR:
+              x.innerHTML = "An unknown error occurred."
+              break;
+          }
+        }
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
