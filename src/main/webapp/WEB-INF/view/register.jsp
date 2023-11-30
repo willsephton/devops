@@ -54,10 +54,10 @@
     <p><fmt:message key="label.userNameUniqueMessage" /></p>
     <form action="./register" method="POST">
         <input type="hidden" name="action" value="createNewAccount">
-        <p><fmt:message key="label.username" /> <input type="text" name="username" ></input></p><BR>
-        <p><fmt:message key="label.password" /> <input type="password" name="password" ></input></p>
-        <p><fmt:message key="label.reEnterPassword" /> <input type="password" name="password2" ></input></p>
-        <p><button type="submit" ><fmt:message key="label.createAccount" /></button></p>
+        <p><fmt:message key="label.username" /> <br><input type="text" name="username" ></input></p>
+        <p><fmt:message key="label.password" /> <br><input type="password" name="password" ></input></p>
+        <p><fmt:message key="label.reEnterPassword" /> <br><input type="password" name="password2" ></input></p><br>
+        <p><button type="Create Account" ><fmt:message key="label.createAccount" /></button></p>
     </form> 
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

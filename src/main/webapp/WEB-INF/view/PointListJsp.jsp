@@ -63,46 +63,48 @@
 			<div style="color: red;">${errorMessage}</div>
 			<div style="color: green;">${message}</div>
 
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col"><fmt:message key="label.id" /></th>
-						<th scope="col"><fmt:message key="label.name" /></th>
-						<th scope="col"><fmt:message key="label.description" /></th>
-						<th scope="col"><fmt:message key="label.category" /></th>
-						<th scope="col"><fmt:message key="label.latitude" /></th>
-						<th scope="col"><fmt:message key="label.longitude" /></th>
-						<th scope="col"><fmt:message key="label.photoURL" /></th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="mapPoint" items="${mapPoints}">
-						<tr>
-							<td>${mapPoint.id}</td>
-							<td>${mapPoint.name}</td>
-							<td>${mapPoint.description}</td>
-							<td>${mapPoint.category}</td>
-							<td>${mapPoint.lat}</td>
-							<td>${mapPoint.lng}</td>
-							<td>${mapPoint.photoUrl}</td>
-							<td>
-								<form action="./viewModifyPoint" method="POST">
-									<input type="hidden" name="pointId" value="${mapPoint.id}">
-									<input type="hidden" name="action" value="modifyPoint">
-									<button class="btn" type="submit"><fmt:message key="label.modifyBtn" /></button>
-								</form>
-								<form action="./viewModifyPoint" method="POST">
-									<input type="hidden" name="pointId" value="${mapPoint.id}">
-									<input type="hidden" name="action" value="deletePoint">
-									<button class="btn" type="submit"><fmt:message key="label.deleteBtn" /></button>
-								</form>
-							</td>
-						</tr>
-					</c:forEach>
+                        <div style="overflow-x:auto;">
+                            <table class="table">
+                                    <thead>
+                                            <tr>
+                                                    <th scope="col"><fmt:message key="label.id" /></th>
+                                                    <th scope="col"><fmt:message key="label.name" /></th>
+                                                    <th scope="col"><fmt:message key="label.description" /></th>
+                                                    <th scope="col"><fmt:message key="label.category" /></th>
+                                                    <th scope="col"><fmt:message key="label.latitude" /></th>
+                                                    <th scope="col"><fmt:message key="label.longitude" /></th>
+                                                    <th scope="col"><fmt:message key="label.photoURL" /></th>
+                                                    <th></th>
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                            <c:forEach var="mapPoint" items="${mapPoints}">
+                                                    <tr>
+                                                            <td>${mapPoint.id}</td>
+                                                            <td>${mapPoint.name}</td>
+                                                            <td>${mapPoint.description}</td>
+                                                            <td>${mapPoint.category}</td>
+                                                            <td>${mapPoint.lat}</td>
+                                                            <td>${mapPoint.lng}</td>
+                                                            <td>${mapPoint.photoUrl}</td>
+                                                            <td>
+                                                                    <form action="./viewModifyPoint" method="POST">
+                                                                            <input type="hidden" name="pointId" value="${mapPoint.id}">
+                                                                            <input type="hidden" name="action" value="modifyPoint">
+                                                                            <button class="btn" type="submit"><fmt:message key="label.modifyBtn" /></button>
+                                                                    </form>
+                                                                    <form action="./viewModifyPoint" method="POST">
+                                                                            <input type="hidden" name="pointId" value="${mapPoint.id}">
+                                                                            <input type="hidden" name="action" value="deletePoint">
+                                                                            <button class="btn" type="submit"><fmt:message key="label.deleteBtn" /></button>
+                                                                    </form>
+                                                            </td>
+                                                    </tr>
+                                            </c:forEach>
 
-				</tbody>
-			</table>
+                                    </tbody>
+                            </table>
+                        </div>
 
 			<form action="./viewModifyPoint" method="POST">
 				<input type="hidden" name="pointId" value="${mapPoint.id}">

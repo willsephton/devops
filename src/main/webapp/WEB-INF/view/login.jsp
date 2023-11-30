@@ -60,7 +60,7 @@
         
         <br>
         <!-- route for user to register if they do not have account -->
-        <a href="./createAccount"><fmt:message key="label.createNewAccount" /></a>
+        <a href="./register"><fmt:message key="label.createNewAccount" /></a>
     </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
