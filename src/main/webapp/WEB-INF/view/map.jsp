@@ -6,6 +6,8 @@
     Update Description: Changed the page title that is displayed to the user
     Updated: Kyle Roberts 20 Nov 2023, 13:08:00
     Updated Description: Added i18n 
+    Updated: Quinn Toye 30 Nov 2023, 09:33:00
+    Updated Description: Added geolocation retrieval
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -62,8 +64,8 @@
                 <h1><fmt:message key="label.theMap" /></h1>
             </header>
             <section>
-                <p>Get my location!</p>
-                <button onclick="getLocation()">Go!</button>
+                <p><fmt:message key="label.requestLocation" /></p>
+                <button onclick="getLocation()"><fmt:message key="label.requestLocationBtn" /></button>
                 <p id="geolocation"></p>
             </section>
             <section>
@@ -85,28 +87,28 @@
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition, showError);
           } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            x.innerHTML = "<fmt:message key="label.noBrowserSupport" />";
           }
         }
 
         function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude;
+          x.innerHTML = "<fmt:message key="label.latitude" />: " + position.coords.latitude + 
+          "<br><fmt:message key="label.longitude" />: " + position.coords.longitude;
         }
 
         function showError(error) {
           switch(error.code) {
             case error.PERMISSION_DENIED:
-              x.innerHTML = "User denied the request for Geolocation."
+              x.innerHTML = "<fmt:message key="label.geoLocationPermDenied" />";
               break;
             case error.POSITION_UNAVAILABLE:
-              x.innerHTML = "Location information is unavailable."
+              x.innerHTML = "<fmt:message key="label.locationUnavailable" />.";
               break;
             case error.TIMEOUT:
-              x.innerHTML = "The request to get user location timed out."
+              x.innerHTML = "<fmt:message key="label.locationReqTimeout" />";
               break;
             case error.UNKNOWN_ERROR:
-              x.innerHTML = "An unknown error occurred."
+              x.innerHTML = "<fmt:message key="label.unknownError" />";
               break;
           }
         }
