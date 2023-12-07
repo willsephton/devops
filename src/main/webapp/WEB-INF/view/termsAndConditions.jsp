@@ -52,8 +52,61 @@
             
             <section>
                 
-                <div id="homeContent" style="height: 440px; border: 1px solid #AAA;">
-                    <p><fmt:message key="label.termsAndConditions" /></p>
+                <div id="homeContent" style="border: 1px solid #AAA;">
+                    
+                    <h3><fmt:message key="label.termsIntroHead" /></h3>
+                    <p><fmt:message key="label.termsIntroContent" /></p>
+                    
+                    <h3><fmt:message key="label.termsCollectHead" /></h3>
+                    <p><fmt:message key="label.termsCollectSubHead" /></p>
+                    <ul>
+                        <li><fmt:message key="label.termsCollectLi1" /></li>
+                        <li><fmt:message key="label.termsCollectLi2" /></li>
+                        <li><fmt:message key="label.termsCollectLi3" /></li>
+                    </ul>
+                    
+                    <h3><fmt:message key="label.termsUseHead" /></h3>
+                    <p><fmt:message key="label.termsUseSubHead" /></p>
+                    <ul>
+                        <li><fmt:message key="label.termsUseLi1" /></li>
+                        <li><fmt:message key="label.termsUseLi2" /></li>
+                        <li><fmt:message key="label.termsUseLi3" /></li>
+                        <li><fmt:message key="label.termsUseLi4" /></li>
+                        <li><fmt:message key="label.termsUseLi5" /></li>
+                        <li><fmt:message key="label.termsUseLi6" /></li>
+                    </ul>
+                    
+                    <h3><fmt:message key="label.termsShareHead" /></h3>
+                    <p><fmt:message key="label.termsShareSubHead" /></p>
+                    <ul>
+                        <li><fmt:message key="label.termsShareLi1" /></li>
+                        <li><fmt:message key="label.termsShareLi2" /></li>
+                    </ul>
+                    
+                    <h3><fmt:message key="label.termsChoicesHead" /></h3>
+                    <p><fmt:message key="label.termsChoicesSubHead" /></p>
+                    <ul>
+                        <li><fmt:message key="label.termsChoicesLi1" /></li>
+                        <li><fmt:message key="label.termsChoicesLi2" /></li>
+                        <li><fmt:message key="label.termsChoicesLi3" /></li>
+                    </ul>
+                    
+                    <h3><fmt:message key="label.termsProtectHead" /></h3>
+                    <p><fmt:message key="label.termsProtectContent" /></p>
+                    
+                    <h3><fmt:message key="label.termsRightsHead" /></h3>
+                    <p><fmt:message key="label.termsRightsSubHead" /></p>
+                    <ul>
+                        <li><fmt:message key="label.termsRightsLi1" /></li>
+                        <li><fmt:message key="label.termsRightsLi2" /></li>
+                        <li><fmt:message key="label.termsRightsLi3" /></li>
+                        <li><fmt:message key="label.termsRightsLi4" /></li>
+                        <li><fmt:message key="label.termsRightsLi5" /></li>
+                        <li><fmt:message key="label.termsRightsLi6" /></li>
+                    </ul>
+                    
+                    <h3><fmt:message key="label.termsChangesHead" /></h3>
+                    <p><fmt:message key="label.termsChangesContent" /></p>
                 </div>
 
             </section>
