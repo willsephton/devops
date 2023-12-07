@@ -30,29 +30,28 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./:/workdir
 
-    nginx:
-        build: ./nginx
-        image: devops/nginx
-        environment:
+   nginx:
+    build: ./nginx
+    image: devops/nginx
+    environment:
         - DRY_RUN
-        volumes:
+    volumes:
         - ./config.json:/letsencrypt-docker-compose/config.json:ro
-        -  /home/devopsadmin/devops/nginx-conf/nginx.conf:/etc/nginx/nginx.conf
+        - /home/devopsadmin/devops/nginx-conf/nginx.conf:/etc/nginx/nginx.conf
+        - ./nginx-conf/conf.d:/etc/nginx/conf.d
         - ./html:/var/www/html:ro
         - nginx_conf_ssl:/etc/nginx/ssl
         - letsencrypt_certs:/etc/letsencrypt
         - certbot_acme_challenge:/var/www/certbot
-        ports:
+    ports:
         - "80:80"
         - "443:443"
-        healthcheck:
-            test: ["CMD", "nc", "-z", "nginx", "80"]
-            interval: 30s
-            timeout: 30s
-            retries: 10
-        restart: unless-stopped
-        # nginx needs the upstream service to be working 
-
+    healthcheck:
+        test: ["CMD", "nc", "-z", "nginx", "80"]
+        interval: 30s
+        timeout: 30s
+        retries: 10
+    restart: unless-stopped
 
     certbot:
         build: ./certbot
