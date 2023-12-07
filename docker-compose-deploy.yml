@@ -38,7 +38,7 @@ services:
         volumes:
             - ./config.json:/letsencrypt-docker-compose/config.json:ro
             - /home/devopsadmin/devops/nginx-conf/nginx.conf:/etc/nginx/nginx.conf
-            - ./nginx-conf/conf.d:/etc/nginx/conf.d
+            - ./nginx-conf/conf:/etc/nginx/conf
             - ./html:/var/www/html:ro
             - nginx_conf_ssl:/etc/nginx/ssl
             - letsencrypt_certs:/etc/letsencrypt
