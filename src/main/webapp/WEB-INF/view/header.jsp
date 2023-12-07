@@ -69,6 +69,8 @@
                                 </ul>
                             </li> 
                             
+                            <li <% if ("changeLocaleSpring".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./termsAndConditions"><fmt:message key="label.termsAndConditionsHeader" /></a></li> 
+                            
                             <li <% if ("changeLocaleSpring".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./changeLocaleSpring"><fmt:message key="label.changeLanguage" /></a></li>  
                             
                             <c:if test="${sessionUser.userRole =='ADMINISTRATOR'}">

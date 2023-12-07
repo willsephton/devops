@@ -234,4 +234,9 @@ public class PageController {
     public String getChangeLocalPage(){
         return "changeLocaleSpring";
     }
+    
+    @RequestMapping("/termsAndConditions")
+    public String termsAndConditions(){
+        return "termsAndConditions";
+    }
 }
