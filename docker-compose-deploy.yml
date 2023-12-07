@@ -22,8 +22,6 @@ services:
         build: ./cli
         image: devops/letsencrypt-docker-compose-cli
         user: ${CURRENT_USER}
-        group_add:
-        - ${DOCKER_GROUP}
         environment:
         - COMPOSE_PROJECT_NAME
         - CURRENT_USER
