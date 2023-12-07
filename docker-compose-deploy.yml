@@ -1,4 +1,4 @@
-# example build as part of docker compose https://github.com/zhao-lin-li/docker-compose-build/tree/master
+ example build as part of docker compose https://github.com/zhao-lin-li/docker-compose-build/tree/master
 
 version: "3.2"
 
@@ -58,6 +58,10 @@ services:
             retries: 10
         restart: unless-stopped
         # nginx needs the upstream service to be working 
+        depends_on:
+            webapp:
+            #jetty-backend:
+                condition: service_healthy
 
     certbot:
         build: ./certbot
@@ -78,6 +82,9 @@ services:
             timeout: 30s
             start_period: 30s
             retries: 5
+        depends_on:
+            nginx:
+                condition: service_healthy
         restart: unless-stopped
         
     db:
@@ -110,6 +117,9 @@ services:
         volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./:/workdir:ro
+        depends_on:
+            certbot:
+                condition: service_healthy
         restart: unless-stopped
           
 # Names our volume
