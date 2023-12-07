@@ -54,7 +54,6 @@ services:
             test: ["CMD", "nc", "-z", "nginx", "80"]
             interval: 30s
             timeout: 30s
-            start_period: 30s
             retries: 10
         restart: unless-stopped
         # nginx needs the upstream service to be working 
@@ -77,7 +76,6 @@ services:
                 ]
             interval: 30s
             timeout: 30s
-            start_period: 30s
             retries: 5
         
     db:
