@@ -186,6 +186,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
          </plugin>
+        
+         <!-- surefire plugin runs junit tests during test phase but excludes integration tests -->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+               <excludes>
+                  <exclude>**/*IT.java</exclude>
+               </excludes>
+            </configuration>
+         </plugin>
+
 
          <plugin>
             <groupId>org.codehaus.cargo</groupId>
