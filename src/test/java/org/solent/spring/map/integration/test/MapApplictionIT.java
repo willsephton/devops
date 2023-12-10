@@ -108,21 +108,13 @@ public class MapApplictionIT {
 	}
 
 	@Test
-	public void pointTest() {
-		driver.get("http://localhost:8080/");
-		driver.manage().window().setSize(new Dimension(1095, 797));
-		driver.findElement(By.linkText("Map")).click();
-		driver.findElement(By.linkText("Point List")).click();
-		driver.findElement(By.cssSelector("tr:nth-child(1) form:nth-child(1) > .btn")).click();
-		driver.findElement(By.linkText("Map")).click();
-		vars.put("window_handles", driver.getWindowHandles());
-		driver.findElement(By.linkText("Swagger (OpenAPI) UI")).click();
-		vars.put("win4919", waitForWindow(2000));
-		driver.switchTo().window(vars.get("win4919").toString());
-		driver.findElement(By.cssSelector("#operations-map-point-rest-controller-list .opblock-summary-method"))
-				.click();
-		driver.findElement(By.cssSelector(".btn")).click();
-		driver.findElement(By.cssSelector(".execute")).click();
-		driver.findElement(By.cssSelector(".execute")).click();
-	}
+        public void devopstest1() {
+          driver.get("http://localhost:8080/index");
+          driver.manage().window().setSize(new Dimension(652, 672));
+          driver.findElement(By.cssSelector(".icon-bar:nth-child(3)")).click();
+          driver.findElement(By.linkText("Home")).click();
+          driver.findElement(By.cssSelector(".navbar-toggle")).click();
+          driver.findElement(By.linkText("Map")).click();
+          driver.findElement(By.linkText("Open Map")).click();
+         }
 }
