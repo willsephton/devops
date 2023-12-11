@@ -1,4 +1,4 @@
- example build as part of docker compose https://github.com/zhao-lin-li/docker-compose-build/tree/master
+# example build as part of docker compose https://github.com/zhao-lin-li/docker-compose-build/tree/master
 
 version: "3.2"
 
