@@ -121,6 +121,7 @@ up)
         --dry-run)
             export DRY_RUN=true
             shift
+            CMD+=("--dry-run")  # Enclose the option within quotes
             ;;
         *)
             echo "Unknown option $1"
@@ -128,7 +129,6 @@ up)
             ;;
         esac
     done
-    CMD+=(--)  # Add the separator indicating the end of options
     ;;
 build)
     CMD=(docker compose --profile config build)
