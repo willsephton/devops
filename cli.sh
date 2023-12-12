@@ -128,6 +128,7 @@ up)
             ;;
         esac
     done
+    CMD+=(--)  # Add the separator indicating the end of options
     ;;
 build)
     CMD=(docker compose --profile config build)
