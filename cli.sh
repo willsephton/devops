@@ -37,7 +37,7 @@ case $1 in
     done
     ;;
   up)
-    CMD=(docker-compose up -d)
+    CMD=(docker-compose -f docker-compose-deploy.yml up -d)
     shift
     while [[ $# -gt 0 ]]; do
       case $1 in
@@ -53,7 +53,7 @@ case $1 in
     done
     ;;
   build)
-    CMD=(docker-compose --profile config build)
+    CMD=(docker-compose -f docker-compose-deploy.yml --profile config build)
     shift
     while [[ $# -gt 0 ]]; do
       case $1 in
