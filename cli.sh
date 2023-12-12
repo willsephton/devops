@@ -75,4 +75,3 @@ case $1 in
 esac
 
 "${CMD[@]}"
-!/bin/bash
