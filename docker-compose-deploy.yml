@@ -60,7 +60,6 @@ services:
         # nginx needs the upstream service to be working 
         depends_on:
             webapp:
-            #jetty-backend:
                 condition: service_healthy
 
     certbot:
@@ -92,11 +91,8 @@ services:
         restart: always
         environment:
           MYSQL_DATABASE: 'db'
-          # So you don't have to use root, but you can if you like
           MYSQL_USER: 'user'
-          # You can use whatever password you like
           MYSQL_PASSWORD: 'password'
-          # Password for root access
           MYSQL_ROOT_PASSWORD: 'password'
         ports:
           # <Port exposed> : <MySQL Port running inside container>
