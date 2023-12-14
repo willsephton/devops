@@ -11,11 +11,11 @@ services:
         image: jetty:10.0.17-jdk11
         volumes:
         - ./target/spring-boot-leaflet-starter-0.0.1-SNAPSHOT.war:/var/lib/jetty/webapps/root.war
-        # healthcheck:
-        #     test: [ "CMD", "curl", "-f", "-I", "localhost:8080" ]
-        #     interval: 1m
-        #     timeout: 5s
-        #     retries: 3
+        healthcheck:
+            test: [ "CMD", "curl", "-f", "-I", "localhost:8080" ]
+            interval: 1m
+            timeout: 5s
+            retries: 3
     
     # http://localhost:8080/
     cli:
@@ -50,17 +50,17 @@ services:
         ports:
         - "80:80"
         - "443:443"
-        # healthcheck:
-        #     test: ["CMD", "nc", "-z", "nginx", "80"]
-        #     interval: 30s
-        #     timeout: 30s
-        #     start_period: 30s
-        #     retries: 10
+        healthcheck:
+            test: ["CMD", "nc", "-z", "nginx", "80"]
+            interval: 30s
+            timeout: 30s
+            start_period: 30s
+            retries: 10
         restart: unless-stopped
         # nginx needs the upstream service to be working 
-        # depends_on:
-        #     webapp:
-        #         condition: service_healthy
+        depends_on:
+            webapp:
+                condition: service_healthy
 
     certbot:
         build: ./certbot
@@ -71,19 +71,19 @@ services:
         - ./config.json:/devops/config.json:ro
         - letsencrypt_certs:/etc/letsencrypt
         - certbot_acme_challenge:/var/www/certbot
-        # healthcheck:
-        #     test:
-        #         [
-        #         "CMD-SHELL",
-        #         'test -n "$$(ls -A /etc/letsencrypt/live/)" || test "$$DRY_RUN" == "true" || exit 1',
-        #         ]
+        healthcheck:
+            test:
+                [
+                "CMD-SHELL",
+                'test -n "$$(ls -A /etc/letsencrypt/live/)" || test "$$DRY_RUN" == "true" || exit 1',
+                ]
             interval: 30s
             timeout: 30s
             start_period: 30s
             retries: 5
-        # depends_on:
-        #     nginx:
-        #         condition: service_healthy
+        depends_on:
+            nginx:
+                condition: service_healthy
         restart: unless-stopped
         
     db:
@@ -113,9 +113,9 @@ services:
         volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./:/workdir:ro
-        # depends_on:
-        #     certbot:
-        #         condition: service_healthy
+        depends_on:
+            certbot:
+                condition: service_healthy
         restart: unless-stopped
 
     prometheus:
