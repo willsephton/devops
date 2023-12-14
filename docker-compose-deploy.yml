@@ -6,6 +6,8 @@ services:
     # http://localhost:8080/
     webapp :
         build: .
+        depends_on:
+           - db 
         ports: 
         - "8080:8080"
         
