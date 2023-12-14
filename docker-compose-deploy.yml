@@ -16,6 +16,7 @@ services:
             interval: 1m
             timeout: 5s
             retries: 3
+            start_period: 20s
     
     # http://localhost:8080/
     cli:
