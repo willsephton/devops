@@ -11,4 +11,4 @@ ENV NODE_ENV=production
 
 WORKDIR /workdir
 
-CMD ["node", "/letsencrypt-docker-compose/cli/src/app.js"]
+CMD ["node", "/devops/cli/src/app.js"]

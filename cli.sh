@@ -18,7 +18,7 @@ EOF
 
 case $1 in
   config)
-    CMD=(docker compose run --rm cli)
+    CMD=(docker compose -f docker-compose-deploy.yml run --rm cli)
     export CURRENT_USER="$(id -u):$(id -g)"
     export DOCKER_GROUP="$(getent group docker | cut -d: -f3)"
     shift
