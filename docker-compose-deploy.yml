@@ -40,7 +40,7 @@ services:
         environment:
         - DRY_RUN
         volumes:
-        - ./config.json:/letsencrypt-docker-compose/config.json:ro
+        - ./config.json:/devops/config.json:ro
         - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf:ro
         - ./nginx-conf/conf.d:/etc/nginx/conf.d:ro
         - ./html:/var/www/html:ro
@@ -68,7 +68,7 @@ services:
         environment:
         - DRY_RUN
         volumes:
-        - ./config.json:/letsencrypt-docker-compose/config.json:ro
+        - ./config.json:/devops/config.json:ro
         - letsencrypt_certs:/etc/letsencrypt
         - certbot_acme_challenge:/var/www/certbot
         healthcheck:

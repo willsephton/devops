@@ -2,7 +2,7 @@
 
 set -e
 
-config="/letsencrypt-docker-compose/config.json"
+config="/devops/config.json"
 
 if [ ! -f "$config" ]; then
   echo "Configuration file not found"

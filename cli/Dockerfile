@@ -3,7 +3,7 @@ FROM node:18-alpine
 RUN apk update && \
     apk add --no-cache docker-cli docker-cli-compose
 
-WORKDIR /letsencrypt-docker-compose/cli
+WORKDIR /devops/cli
 COPY package*.json ./
 RUN npm ci --only=production
 COPY . .
