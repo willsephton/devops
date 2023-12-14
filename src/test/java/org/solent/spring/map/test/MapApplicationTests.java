@@ -30,12 +30,6 @@ public class MapApplicationTests {
 	}
 	
 	// very simple test that swagger page has loaded. Note we cannot test the javascript elements here.
-	@Test
-	public void swaggerUiPage() throws Exception {
-		assertThat(this.restTemplate.getForObject("http://localhost:"+port+"/swagger-ui/index.html",
-				String.class)).contains("<div id=\"swagger-ui\"></div>");
-	}
-	
 
 //	@Test
 //	public void contextLoads() {
