@@ -49,7 +49,7 @@ public class UserAndLoginController {
         // logout of session and clear
         session.invalidate();
 
-        return "redirect:/home";
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/login", method = {RequestMethod.GET})
@@ -67,13 +67,13 @@ public class UserAndLoginController {
             errorMessage = "user " + sessionUser.getUsername() + " already logged in";
             LOG.warn(errorMessage);
             model.addAttribute("errorMessage", errorMessage);
-            return "home";
+            return "index";
         }
 
         model.addAttribute("message", message);
         model.addAttribute("errorMessage", errorMessage);
         // used to set tab selected
-        model.addAttribute("selectedPage", "home");
+        model.addAttribute("selectedPage", "index");
 
         return "login";
 
@@ -100,7 +100,7 @@ public class UserAndLoginController {
             errorMessage = "user " + sessionUser.getUsername() + " already logged in";
             LOG.warn(errorMessage);
             model.addAttribute("errorMessage", errorMessage);
-            return "home";
+            return "index";
         };
 
         if (username == null || username.trim().isEmpty()) {
@@ -147,15 +147,15 @@ public class UserAndLoginController {
             model.addAttribute("message", message);
             model.addAttribute("errorMessage", errorMessage);
             // used to set tab selected
-            model.addAttribute("selectedPage", "home");
-            return "home";
+            model.addAttribute("selectedPage", "index");
+            return "index";
         } else {
             model.addAttribute("errorMessage", "unknown action requested:" + action);
             LOG.error("login page unknown action requested:" + action);
             model.addAttribute("errorMessage", errorMessage);
             // used to set tab selected
-            model.addAttribute("selectedPage", "home");
-            return "home";
+            model.addAttribute("selectedPage", "index");
+            return "index";
         }
     }
 
@@ -175,7 +175,7 @@ public class UserAndLoginController {
         model.addAttribute("message", message);
         model.addAttribute("errorMessage", errorMessage);
         // used to set tab selected
-        model.addAttribute("selectedPage", "home");
+        model.addAttribute("selectedPage", "index");
 
         return "register";
     }
@@ -242,7 +242,7 @@ public class UserAndLoginController {
         } else {
             LOG.debug("unknown action " + action);
             model.addAttribute("errorMessage", "unknown action " + action);
-            return "home";
+            return "index";
         }
     }
 
@@ -258,7 +258,7 @@ public class UserAndLoginController {
 
         if (!UserRole.ADMINISTRATOR.equals(sessionUser.getUserRole())) {
             errorMessage = "you must be an administrator to access users information";
-            return "home";
+            return "index";
         }
 
         List<User> userList = userRepository.findAll();
@@ -277,7 +277,7 @@ public class UserAndLoginController {
         String message = "";
         String errorMessage = "";
 
-        model.addAttribute("selectedPage", "home");
+        model.addAttribute("selectedPage", "index");
 
         LOG.debug("get viewModifyUser called for username=" + username);
 
@@ -288,7 +288,7 @@ public class UserAndLoginController {
         if (UserRole.ANONYMOUS.equals(sessionUser.getUserRole())) {
             errorMessage = "you must be logged in to access user information";
             model.addAttribute("errorMessage", errorMessage);
-            return "home";
+            return "index";
         }
 
         if (!UserRole.ADMINISTRATOR.equals(sessionUser.getUserRole())) {
@@ -298,14 +298,14 @@ public class UserAndLoginController {
                         + "which is not the logged in user =" + sessionUser.getUsername();
                 LOG.warn(errorMessage);
                 model.addAttribute("errorMessage", errorMessage);
-                return ("home");
+                return ("index");
             }
         }
 
         List<User> userList = userRepository.findByUsername(username);
         if (userList.isEmpty()) {
             LOG.error("viewModifyUser called for unknown username=" + username);
-            return ("home");
+            return ("index");
         }
 
         User modifyUser = userList.get(0);
@@ -351,7 +351,7 @@ public class UserAndLoginController {
         if (UserRole.ANONYMOUS.equals(sessionUser.getUserRole())) {
             errorMessage = "you must be logged in to access users information";
             model.addAttribute("errorMessage", errorMessage);
-            return "home";
+            return "index";
         }
 
         if (!UserRole.ADMINISTRATOR.equals(sessionUser.getUserRole())) {
@@ -360,7 +360,7 @@ public class UserAndLoginController {
                         + "which is not the logged in user =" + sessionUser.getUsername();
                 model.addAttribute("errorMessage", errorMessage);
                 LOG.warn(errorMessage);
-                return ("home");
+                return ("index");
             }
         }
 
@@ -369,7 +369,7 @@ public class UserAndLoginController {
             errorMessage = "update user called for unknown username:" + username;
             LOG.warn(errorMessage);
             model.addAttribute("errorMessage", errorMessage);
-            return ("home");
+            return ("index");
         }
 
         User modifyUser = userList.get(0);
@@ -406,7 +406,7 @@ public class UserAndLoginController {
                 errorMessage = "cannot parse userRole" + userRole;
                 LOG.warn(errorMessage);
                 model.addAttribute("errorMessage", errorMessage);
-                return ("home");
+                return ("index");
             }
         }
 
@@ -439,7 +439,7 @@ public class UserAndLoginController {
         model.addAttribute("errorMessage", errorMessage);
         model.addAttribute("message", "User " + modifyUser.getUsername() + " updated successfully");
 
-        model.addAttribute("selectedPage", "home");
+        model.addAttribute("selectedPage", "index");
 
         return "viewModifyUser";
     }

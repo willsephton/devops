@@ -6,6 +6,8 @@
     Update Description: Changed the page title that is displayed to the user
     Updated: Kyle Roberts 20 Nov 2023, 13:08:00
     Updated Description: Added i18n 
+    Updated: Quinn Toye 30 Nov 2023, 09:33:00
+    Updated Description: Added geolocation retrieval
 --%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -62,6 +64,11 @@
                 <h1><fmt:message key="label.theMap" /></h1>
             </header>
             <section>
+                <p><fmt:message key="label.requestLocation" /></p>
+                <button onclick="getLocation()"><fmt:message key="label.requestLocationBtn" /></button>
+                <p id="geolocation"></p>
+            </section>
+            <section>
                 <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
                 <div id="loader"></div>
             </section>
@@ -70,6 +77,42 @@
 
 
     </div>
+            
+    
+
+    <script>
+        const x = document.getElementById("geolocation");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+          } else { 
+            x.innerHTML = "<fmt:message key="label.noBrowserSupport" />";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "<fmt:message key="label.latitude" />: " + position.coords.latitude + 
+          "<br><fmt:message key="label.longitude" />: " + position.coords.longitude;
+        }
+
+        function showError(error) {
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              x.innerHTML = "<fmt:message key="label.geoLocationPermDenied" />";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "<fmt:message key="label.locationUnavailable" />.";
+              break;
+            case error.TIMEOUT:
+              x.innerHTML = "<fmt:message key="label.locationReqTimeout" />";
+              break;
+            case error.UNKNOWN_ERROR:
+              x.innerHTML = "<fmt:message key="label.unknownError" />";
+              break;
+          }
+        }
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>

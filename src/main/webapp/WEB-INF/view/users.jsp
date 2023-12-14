@@ -52,39 +52,41 @@
     <div>
         <h1><fmt:message key="label.manageUsers" /></h1>
         <p><fmt:message key="label.showing" /> ${userListSize} <fmt:message key="label.users" /> </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col"><fmt:message key="label.id" /></th>
-                    <th scope="col"><fmt:message key="label.username" /></th>
-                    <th scope="col"><fmt:message key="label.firstName" /></th>
-                    <th scope="col"><fmt:message key="label.secondName" /></th>
-                    <th scope="col"><fmt:message key="label.status" /></th>
-                    <th scope="col"><fmt:message key="label.role" /></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="user" items="${userList}">
+        <div style="overflow-x:auto;">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>${user.id}</td>
-                        <td>${user.username}</td>
-                        <td>${user.firstName}</td>
-                        <td>${user.secondName}</td>
-                        <!-- user.enabled=${user.enabled}-->
-                        <td><c:if test="${user.enabled}">ENABLED</c:if><c:if test="${!user.enabled}">DISABLED</c:if></td>
-                        <td>${user.userRole}</td>
-                        <td>
-                            <form action="./viewModifyUser" method="GET">
-                                <input type="hidden" name="username" value="${user.username}">
-                                <button class="btn" type="submit" ><fmt:message key="label.modifyUsersBtn" /></button>
-                            </form> 
-                        </td>
+                        <th scope="col"><fmt:message key="label.id" /></th>
+                        <th scope="col"><fmt:message key="label.username" /></th>
+                        <th scope="col"><fmt:message key="label.firstName" /></th>
+                        <th scope="col"><fmt:message key="label.secondName" /></th>
+                        <th scope="col"><fmt:message key="label.status" /></th>
+                        <th scope="col"><fmt:message key="label.role" /></th>
+                        <th></th>
                     </tr>
-                </c:forEach>
+                </thead>
+                <tbody>
+                    <c:forEach var="user" items="${userList}">
+                        <tr>
+                            <td>${user.id}</td>
+                            <td>${user.username}</td>
+                            <td>${user.firstName}</td>
+                            <td>${user.secondName}</td>
+                            <!-- user.enabled=${user.enabled}-->
+                            <td><c:if test="${user.enabled}">ENABLED</c:if><c:if test="${!user.enabled}">DISABLED</c:if></td>
+                            <td>${user.userRole}</td>
+                            <td>
+                                <form action="./viewModifyUser" method="GET">
+                                    <input type="hidden" name="username" value="${user.username}">
+                                    <button class="btn" type="submit" ><fmt:message key="label.modifyUsersBtn" /></button>
+                                </form> 
+                            </td>
+                        </tr>
+                    </c:forEach>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
         <form action="./register" method="GET">
             <button class="btn" type="submit" ><fmt:message key="label.addUsersBtn" /></button>
         </form> 

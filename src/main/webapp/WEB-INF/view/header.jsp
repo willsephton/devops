@@ -69,8 +69,8 @@
                                 </ul>
                             </li> 
                             
-                            <li <% if ("about".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% } %> ><a href="./about"><fmt:message key="label.about" /></a></li> 
-                            <li <% if ("contact".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./contact"><fmt:message key="label.contact" /></a></li> 
+                            <li <% if ("changeLocaleSpring".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./termsAndConditions"><fmt:message key="label.termsAndConditionsHeader" /></a></li> 
+                            
                             <li <% if ("changeLocaleSpring".equals(request.getAttribute("selectedPage"))) {%>  class="active"  <% }%> ><a href="./changeLocaleSpring"><fmt:message key="label.changeLanguage" /></a></li>  
                             
                             <c:if test="${sessionUser.userRole =='ADMINISTRATOR'}">

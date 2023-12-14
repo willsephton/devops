@@ -1,19 +1,26 @@
 # COM619 - DevOps
 Repository for AE1 DevOps COM619 - Insert Team Name Here
 
-| Name    | Role (Client/Back) |
-| -------- | ------- |
-| Kyle Roberts  | Clientside    |
-| Quinn Toye | Clientside     |
-| Iona Pitt    | Backend, Documentation & Organisation    |
-| Blaise Tyree    | Backend    |
-| William Sephton  | Backend    |
+[Documentation](https://github.com/willsephton/devops/wiki/Home) - Linked here is the teams documentation
+
+| Name    | Role (Client/Back) | Video Submission Link |
+| -------- | ------- | ------- |
+| Kyle Roberts  | Clientside, Documentation    | --------- |
+| Quinn Toye | Clientside, Documentation    | --------- |
+| Iona Pitt    | Backend, Documentation & GitHub repo Organisation    | --------- |
+| Blaise Tyree    | Backend, Documentation    | --------- |
+| William Sephton  | Backend, Documentation & Project Lead   | --------- |
 
 # List of Technologies Being Used In DevOps Project
 - Hosting: Azure VM
 - Database: MySql
 - Languages: Java, HTML, CSS, JS
 - Complier: Springboot, Maven, and Jetty
+- Security: Nginx, Let's Encrypt, Certbot
+- Containers: Docker
+- Database Monitoring: Prometheus
+- Testing: Selenium
+
 
 - Collaboration between the team through Discord (for voice) and GitHub (for code)
 - Deployment of the website will be carried out using Docker containers and a Jetty bridge to allow WAR files to be deployed without hard coding them onto the VM every time
