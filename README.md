@@ -22,6 +22,9 @@ Repository for AE1 DevOps COM619 - Insert Team Name Here
 - Testing: Selenium
 
 
+Project Board: https://github.com/users/willsephton/projects/1
+
+
 - Collaboration between the team through Discord (for voice) and GitHub (for code)
 - Deployment of the website will be carried out using Docker containers and a Jetty bridge to allow WAR files to be deployed without hard coding them onto the VM every time
 - Map is integrated using leaflet and OpenStreetMaps
