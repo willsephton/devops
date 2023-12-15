@@ -6,9 +6,9 @@ Repository for AE1 DevOps COM619 - Insert Team Name Here
 | Name    | Role (Client/Back) | Video Submission Link |
 | -------- | ------- | ------- |
 | Kyle Roberts  | Clientside, Documentation    | [YouTube Demo Video](https://www.youtube.com/watch?v=7rIF6evktZQ) |
-| Quinn Toye | Clientside, Documentation    | --------- |
-| Iona Pitt    | Backend, Documentation & GitHub repo Organisation    | --------- |
-| Blaise Tyree    | Backend, Documentation    | --------- |
+| Quinn Toye | Clientside, Documentation    | [YouTube Demo Video](https://www.youtube.com/watch?v=7rIF6evktZQ) |
+| Iona Pitt    | Backend, Documentation & GitHub repo Organisation    | [YouTube Demo Video](https://www.youtube.com/watch?v=7rIF6evktZQ) |
+| Blaise Tyree    | Backend, Documentation    | [YouTube Demo Video](https://www.youtube.com/watch?v=7rIF6evktZQ) |
 | William Sephton  | Backend, Documentation & Project Lead   | https://www.youtube.com/watch?v=7rIF6evktZQ |
 
 # List of Technologies Being Used In DevOps Project
