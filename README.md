@@ -9,7 +9,7 @@ Repository for AE1 DevOps COM619 - Insert Team Name Here
 | Quinn Toye | Clientside, Documentation    | --------- |
 | Iona Pitt    | Backend, Documentation & GitHub repo Organisation    | --------- |
 | Blaise Tyree    | Backend, Documentation    | --------- |
-| William Sephton  | Backend, Documentation & Project Lead   | --------- |
+| William Sephton  | Backend, Documentation & Project Lead   | https://www.youtube.com/watch?v=7rIF6evktZQ |
 
 # List of Technologies Being Used In DevOps Project
 - Hosting: Azure VM
